@@ -1263,19 +1263,20 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
         <!-- LEFT: INFO -->
         <div class="contact-info">
           <img src="https://www.unicol.it/wp-content/uploads/2024/03/azienda_01.jpg" alt="Unicol Factory" class="ci-factory">
-          <div class="ci-brand">Unicol India</div>
-          <div class="ci-tag">Adhesive Technologies · Since 1977</div>
-          <div class="ci-address">
+          <div class="ci-brand" id="ci-brand">Unicol India</div>
+          <div class="ci-tag" id="ci-tag">Adhesive Technologies · Since 1977</div>
+          <div class="ci-address" id="ci-address-primary">
             A57, Giriraj Industrial Estate<br>
             Mahakali Caves Road, Andheri (East)<br>
             Mumbai 400093, Maharashtra<br><br>
             📞 &nbsp;+91 73067 02322<br>
             ✉️ &nbsp;info@unicolindia.com
           </div>
-          <a class="ci-maps" href="https://maps.google.com/?q=A57+Giriraj+Industrial+Estate+Mahakali+Caves+Road+Andheri+East+Mumbai+400093" target="_blank">
+          <a class="ci-maps" id="ci-maps-primary" href="https://maps.google.com/?q=A57+Giriraj+Industrial+Estate+Mahakali+Caves+Road+Andheri+East+Mumbai+400093" target="_blank">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             View on Google Maps
           </a>
+          <div id="ci-principal-slot"></div>
           <div class="ci-links">
             <a class="ci-link" href="https://www.unicolindia.com" target="_blank">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -1301,8 +1302,8 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
         <div class="contact-form-wrap">
           <!-- Mobile-only contact strip (info panel is hidden on small screens) -->
           <div class="mobile-contact-strip">
-            <span>📞 +91 73067 02322</span>
-            <span>✉️ info@unicolindia.com</span>
+            <span id="mcs-phone">📞 +91 73067 02322</span>
+            <span id="mcs-email">✉️ info@unicolindia.com</span>
           </div>
           <div class="cf-heading">Product Enquiry</div>
           <div class="cf-sub">Fill in your details and we'll get back to you within 1 business day.</div>
@@ -1415,24 +1416,60 @@ const DEALERS = {
     name:     'Siddhi Vinayak Trading Co.',
     email:    'Pradeep@svtco.net',
     whatsapp: '919879097373',
+    tag:      'Unicol India Authorised Partner · Ahmedabad',
+    phoneDisplay: '+91 98790 97373',
+    addressHtml: `98, Block B1, 2nd Floor<br>
+            Ashtvinayak Complex, Idgha Road<br>
+            O/S Dariapur Gate, Dariapur<br>
+            Ahmedabad 380016, Gujarat<br><br>
+            \u{1F4DE} &nbsp;+91 98790 97373<br>
+            ✉️ &nbsp;Pradeep@svtco.net`,
+    mapsUrl:  'https://maps.google.com/?q=Ashtvinayak+Complex+Idgha+Road+Dariapur+Ahmedabad+380016',
   },
   saptagiri: {
     name:     'Saptagiri Interio Products',
     email:    'sapthagiriinterio@gmail.com',
     whatsapp: '919141035880',
+    tag:      'Unicol India Authorised Partner · Bengaluru',
+    phoneDisplay: '+91 91410 35880',
+    addressHtml: `SRMT Compound, 275/8, Mysore Rd<br>
+            New Timberyard Layout, Byatarayanapura<br>
+            Banashankari 1st Stage, Banashankari<br>
+            Bengaluru, Karnataka 560026<br><br>
+            \u{1F4DE} &nbsp;+91 91410 35880<br>
+            ✉️ &nbsp;sapthagiriinterio@gmail.com`,
+    mapsUrl:  'https://maps.app.goo.gl/Da36XJCeWEQizvFp9',
   },
   yashtooling: {
     name:     'Yash Tooling',
     email:    'yashtoolinglko24@gmail.com',
     whatsapp: '918058153177',
+    tag:      'Unicol India Authorised Partner · Lucknow',
+    phoneDisplay: '+91 80581 53177',
+    addressHtml: `2/123 Vikrant<br>
+            Khand 2 Gomti Nagar<br>
+            Lucknow 226010, Uttar Pradesh<br><br>
+            \u{1F4DE} &nbsp;+91 80581 53177<br>
+            ✉️ &nbsp;yashtoolinglko24@gmail.com`,
+    mapsUrl:  'https://maps.google.com/?q=Vikrant+Khand+2+Gomti+Nagar+Lucknow+226010',
   },
   yashtoolingsystem: {
     name:     'Yash Tooling System',
     email:    'bharathirparayes@gmail.com',
     whatsapp: '919346362111',
+    tag:      'Unicol India Authorised Partner · Hyderabad',
+    phoneDisplay: '+91 93463 62111',
+    addressHtml: `No. 10-1-4/-A, Fish Market Road<br>
+            Near Railway Bridge, Fathenagar Main Road<br>
+            Hyderabad 500018, Telangana<br><br>
+            \u{1F4DE} &nbsp;+91 93463 62111<br>
+            \u{1F4DE} &nbsp;+91 40 6620 2111<br>
+            \u{1F310} &nbsp;<a href="https://www.yashtooling.in" target="_blank" style="color:inherit">www.yashtooling.in</a><br>
+            ✉️ &nbsp;bharathirparayes@gmail.com`,
+    mapsUrl:  'https://maps.google.com/?q=No+10-1-4+Fish+Market+Road+Fathenagar+Hyderabad+500018',
   },
-  // ── Add new dealers here, e.g.:
-  // abcfurniture: { name: 'ABC Furniture Pvt Ltd', email: 'dealer@abcfurniture.com', whatsapp: '919876543210' },
+  // ── Add new dealers here — copy an entry above and fill in:
+  // slug: { name, email, whatsapp, tag, phoneDisplay, addressHtml, mapsUrl }
 };
 const DEALER_SLUG = new URLSearchParams(window.location.search).get('dealer');
 const DEALER = (DEALER_SLUG && DEALERS[DEALER_SLUG]) ? DEALERS[DEALER_SLUG] : null;
@@ -1902,6 +1939,44 @@ window.addEventListener('DOMContentLoaded', () => {
       dt.style.cssText = 'opacity:0.65;border-right:1px solid rgba(255,255,255,0.25);padding-right:10px;margin-right:10px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-family:\'Barlow Condensed\',sans-serif;font-weight:700';
       dt.textContent = 'Presented by ' + DEALER.name;
       fs.insertBefore(dt, fs.firstChild);
+    }
+  }
+
+  // Dealer contact page: swap brand/address/maps/mobile-strip to the dealer's
+  // own info, and show Unicol India as "Manufactured & Marketed by" underneath.
+  if (DEALER) {
+    const brandEl = document.getElementById('ci-brand');
+    const tagEl   = document.getElementById('ci-tag');
+    const addrEl  = document.getElementById('ci-address-primary');
+    const mapsEl  = document.getElementById('ci-maps-primary');
+    const mcsPhone = document.getElementById('mcs-phone');
+    const mcsEmail = document.getElementById('mcs-email');
+    const slot     = document.getElementById('ci-principal-slot');
+
+    if (brandEl) brandEl.textContent = DEALER.name;
+    if (tagEl && DEALER.tag) tagEl.textContent = DEALER.tag;
+    if (addrEl && DEALER.addressHtml) addrEl.innerHTML = DEALER.addressHtml;
+    if (mapsEl && DEALER.mapsUrl) mapsEl.href = DEALER.mapsUrl;
+    if (mcsPhone && DEALER.phoneDisplay) mcsPhone.textContent = '📞 ' + DEALER.phoneDisplay;
+    if (mcsEmail) mcsEmail.textContent = '✉️ ' + DEALER.email;
+
+    if (slot) {
+      slot.innerHTML =
+        '<div style="margin:18px 0 10px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.18)">' +
+          '<div style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.55;margin-bottom:6px">Manufactured &amp; Marketed by</div>' +
+          '<div style="font-size:14px;font-weight:600;letter-spacing:0.02em">Unicol India Private Limited</div>' +
+          '<div class="ci-address" style="margin-top:6px;margin-bottom:6px">' +
+            'A57, Giriraj Industrial Estate<br>' +
+            'Mahakali Caves Road, Andheri (East)<br>' +
+            'Mumbai 400093, Maharashtra<br><br>' +
+            '📞 &nbsp;+91 73067 02322<br>' +
+            '✉️ &nbsp;info@unicolindia.com' +
+          '</div>' +
+          '<a class="ci-maps" href="https://maps.google.com/?q=A57+Giriraj+Industrial+Estate+Mahakali+Caves+Road+Andheri+East+Mumbai+400093" target="_blank">' +
+            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
+            'View on Google Maps' +
+          '</a>' +
+        '</div>';
     }
   }
 
