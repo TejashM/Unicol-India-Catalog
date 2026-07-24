@@ -2050,18 +2050,6 @@ window.addEventListener('DOMContentLoaded', () => {
     actions.appendChild(enquireBtn);
     actions.appendChild(waBtn);
 
-    // Dealer version: second WA button pointing directly to Unicol India
-    if (DEALER) {
-      const waBtnUnicol = document.createElement('a');
-      waBtnUnicol.className = 'wa-btn wa-btn-unicol';
-      waBtnUnicol.href = 'https://wa.me/' + UNICOL_WHATSAPP + '?text=' + encodeURIComponent('Hi Unicol India,\n' + productLine);
-      waBtnUnicol.target = '_blank';
-      waBtnUnicol.rel = 'noopener noreferrer';
-      waBtnUnicol.innerHTML = waSVG + ' Unicol WA';
-      waBtnUnicol.title = 'WhatsApp Unicol India directly';
-      actions.appendChild(waBtnUnicol);
-    }
-
     card.appendChild(actions);
   });
 });
