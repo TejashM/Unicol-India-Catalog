@@ -22,6 +22,20 @@
 <meta name="twitter:title"       content="Unicol India — Product Catalogue 2026">
 <meta name="twitter:description" content="The complete range of Unicol industrial adhesives for woodworking. Enquire directly from the catalogue.">
 <meta name="twitter:image"       content="https://www.unicol.it/wp-content/uploads/2024/03/azienda_01.jpg">
+<!-- ── VIDEO LIGHTBOX ── -->
+<div id="video-overlay" onclick="if(event.target===this)closeVideo()">
+  <div id="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+    <div id="video-modal-head">
+      <h3 id="video-modal-title">Video</h3>
+      <button id="video-close" onclick="closeVideo()" aria-label="Close">✕</button>
+    </div>
+    <div id="video-frame-wrap">
+      <iframe id="video-frame" src="" title="Unicol India video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
 <!-- ── QUICK ENQUIRY MODAL ── -->
 <div id="qe-overlay" onclick="if(event.target===this)closeEnquiry()">
   <div id="qe-modal" role="dialog" aria-modal="true" aria-labelledby="qe-title">
@@ -310,6 +324,66 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
 .no-results-reset{margin-top:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 18px;background:#004288;color:#fff;border:none;border-radius:2px;cursor:pointer}
 .no-results-reset:hover{background:#003366}
 
+/* ── PAGE: VIDEOS ── */
+#page-videos{background:#f7f9fc}
+.video-page-header{padding:32px 24px 4px}
+.video-grid-wrap{padding:16px 24px 24px}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.video-card{
+  background:#fff;border:1px solid #dde4f0;border-radius:2px;overflow:hidden;
+  box-shadow:0 1px 3px rgba(0,66,136,0.05);transition:box-shadow 0.2s;cursor:pointer;
+}
+.video-card:hover{box-shadow:0 4px 14px rgba(0,66,136,0.10)}
+.video-thumb-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#001e3e;overflow:hidden}
+.video-thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.video-play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  transition:transform 0.15s;
+}
+.video-card:hover .video-play{transform:scale(1.08)}
+.video-card-body{padding:12px 14px}
+.video-card-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;color:#222;line-height:1.3}
+.video-card-tag{font-size:10.5px;color:#888;margin-top:3px}
+.video-page-footer{padding:8px 24px 40px;text-align:center}
+.video-channel-link{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:1.5px;text-transform:uppercase;color:#004288;text-decoration:none;
+  border:1.5px solid #004288;padding:9px 20px;border-radius:2px;transition:all 0.15s;
+}
+.video-channel-link:hover{background:#004288;color:#fff}
+
+/* ── VIDEO LIGHTBOX ── */
+#video-overlay{
+  display:none;position:fixed;inset:0;z-index:900;
+  background:rgba(0,15,30,0.85);
+  align-items:center;justify-content:center;padding:16px;
+}
+#video-overlay.open{display:flex}
+#video-modal{
+  background:#000;border-radius:3px;width:100%;max-width:820px;
+  box-shadow:0 12px 40px rgba(0,15,30,0.5);overflow:hidden;
+}
+#video-modal-head{
+  background:#004288;color:#fff;
+  padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+#video-modal-head h3{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;
+  letter-spacing:0.5px;margin:0;line-height:1.3;
+}
+#video-close{
+  background:transparent;border:none;color:rgba(255,255,255,0.6);
+  font-size:22px;line-height:1;cursor:pointer;padding:0;flex-shrink:0;
+}
+#video-close:hover{color:#fff}
+#video-frame-wrap{position:relative;width:100%;padding-top:56.25%;background:#000}
+#video-frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media(max-width:700px){
+  #video-overlay{padding:0}
+  #video-modal{max-width:100%;border-radius:0}
+}
+
 /* ── CARD ACTION BUTTONS ── */
 .card-actions{display:flex;gap:6px;margin-top:10px}
 .enquire-btn{
@@ -545,6 +619,11 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
   .product-grid-wrap{padding:12px 10px 40px}
   .product-grid{grid-template-columns:1fr;gap:8px}
 
+  /* ── VIDEO GRID ── */
+  .video-page-header{padding:20px 14px 4px}
+  .video-grid-wrap{padding:12px 14px 24px}
+  .video-grid{grid-template-columns:1fr;gap:12px}
+
   /* ── CATEGORY STRIP ── */
   .cat-strip{padding:10px 10px 8px}
   .cat-circle{width:52px;height:52px}
@@ -603,6 +682,7 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
   .card-actions,
   #btt-btn,
   #qe-overlay,
+  #video-overlay,
   .cover-scroll-hint,
   .footer-strip{display:none!important}
 
@@ -679,6 +759,7 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
     <div class="tn-tabs">
       <button class="tn-tab active" onclick="goPage('cover',this)">Cover</button>
       <button class="tn-tab" onclick="goPage('catalogue',this)">Catalogue</button>
+      <button class="tn-tab" onclick="goPage('videos',this)">Videos</button>
       <button class="tn-tab" onclick="goPage('contact',this)">Contact &amp; Enquiry</button>
     </div>
     <div class="tn-right">ADHESIVE TECHNOLOGIES · 2026</div>
@@ -1256,6 +1337,23 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
 
     </div><!-- /page-catalogue -->
 
+    <!-- ═══════════════════ PAGE: VIDEOS ═══════════════════ -->
+    <div class="page" id="page-videos">
+      <div class="video-page-header">
+        <div class="cf-heading">Referral Videos</div>
+        <div class="cf-sub">Machine manufacturers and customers who use Unicol adhesives, in their own words — from IndiaWood 2026</div>
+      </div>
+      <div class="video-grid-wrap">
+        <div class="video-grid" id="video-grid"></div>
+      </div>
+      <div class="video-page-footer">
+        <a href="https://www.youtube.com/@unicolindia" target="_blank" class="video-channel-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+          View more referrals on our channel
+        </a>
+      </div>
+    </div><!-- /page-videos -->
+
     <!-- ═══════════════════ PAGE: CONTACT ═══════════════════ -->
     <div class="page" id="page-contact">
       <div class="contact-wrap">
@@ -1530,7 +1628,62 @@ function pushLeadToZoho(p) {
 
 // ─── PAGE NAVIGATION ────────────────────────────────────────────
 let currentPage = 'cover';
-const pageOrder = ['cover','catalogue','contact'];
+const pageOrder = ['cover','catalogue','videos','contact'];
+
+// ─── VIDEOS ─────────────────────────────────────────────────────
+// Curated set featured on the Catalogue — machine manufacturers & customers
+// Tejash wants prominent. Everything else on the channel is one click away
+// via the "View all videos" link below the grid.
+// Add/remove entries here as the featured list changes. Grab the id from
+// the YouTube URL — youtube.com/watch?v=THIS_PART — title is the display
+// name, tag is the small line under it.
+const VIDEOS = [
+  { id: 'IhQEplGlQeU', title: 'Woodtech Consultants', tag: 'IndiaWood 2026 · Customer Review' },
+  { id: 'jUfUwls1WZ8', title: 'Jai Industries',        tag: 'Referral by Nirav Shah, MD · IndiaWood 2026' },
+  { id: 'jq39JdCGufw', title: 'Homag',                 tag: 'IndiaWood 2026 · Referral' },
+  { id: '2HwYpg3CXYg', title: 'Biesse',                tag: 'IndiaWood 2026 · Referral' },
+  { id: '8mkBoSbN7fo', title: 'Felder',                tag: 'IndiaWood 2026 · Referral' },
+  { id: 'ru_b32hYIIc', title: 'Caple',                 tag: 'IndiaWood 2026 · Referral' },
+  { id: 'R4mdVfS825w', title: 'Altendorf',             tag: 'IndiaWood 2026 · Referral' },
+  { id: 'RrMwd9VaeCU', title: 'Merino',                tag: 'Referral by Vinay Singh · Key Customer' },
+  { id: 'xTw3jR2cZ18', title: 'Spacewood',             tag: 'Referral by Vidyadhar · Key Customer' },
+  { id: 'z91oDvMDTew', title: 'Crystal Furniture',     tag: 'Referral · Key Customer' },
+  // { id: 'VIDEO_ID_HERE', title: 'Display name', tag: 'Short subtitle' },
+];
+
+function renderVideos() {
+  const grid = document.getElementById('video-grid');
+  if (!grid) return;
+  if (!VIDEOS.length) {
+    grid.innerHTML = '<div class="no-results visible">No videos added yet.</div>';
+    return;
+  }
+  grid.innerHTML = VIDEOS.map(v => {
+    const safeTitle = v.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    return `<div class="video-card" onclick="openVideo('${v.id}','${safeTitle}')">
+        <div class="video-thumb-wrap">
+          <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${v.title.replace(/"/g,'&quot;')}" loading="lazy">
+          <div class="video-play">
+            <svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="rgba(0,20,40,0.55)"/><path d="M21 16l16 10-16 10z" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="video-card-body">
+          <div class="video-card-title">${v.title}</div>
+          ${v.tag ? `<div class="video-card-tag">${v.tag}</div>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function openVideo(id, title) {
+  document.getElementById('video-frame').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+  document.getElementById('video-modal-title').textContent = title;
+  document.getElementById('video-overlay').classList.add('open');
+}
+function closeVideo() {
+  document.getElementById('video-overlay').classList.remove('open');
+  document.getElementById('video-frame').src = ''; // stop playback
+}
 
 function goPage(id, btn) {
   if (id === currentPage) return;
@@ -1875,7 +2028,7 @@ function closeEnquiry() {
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeEnquiry();
+  if (e.key === 'Escape') { closeEnquiry(); closeVideo(); }
 });
 
 function submitQuickEnquiry() {
@@ -1957,6 +2110,7 @@ window.addEventListener('DOMContentLoaded', () => {
     btn.dataset.label = btn.textContent.trim();
   });
   applyFilters();
+  renderVideos();
 
   // Dealer footer: prepend "Presented by ..." to the footer strip
   if (DEALER && DEALER.name) {
