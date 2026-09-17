@@ -845,6 +845,7 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
           <button class="filter-btn" id="app-AcrP" data-app-key="Acrylic Pressing" onclick="setApp('Acrylic Pressing')">Acrylic Pressing</button>
           <button class="filter-btn" id="app-MC"   data-app-key="Machine Cleaning" onclick="setApp('Machine Cleaning')">Machine Cleaning</button>
           <button class="filter-btn" id="app-Pkg"  data-app-key="Packaging"        onclick="setApp('Packaging')">Packaging</button>
+          <button class="filter-btn" id="app-Foam" data-app-key="Foam/Upholstery" onclick="setApp('Foam/Upholstery')">Foam/Upholstery</button>
         </div>
         <div class="filter-search-row">
           <span class="filter-label">Search</span>
@@ -1172,6 +1173,18 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
             <div class="card-meta"><span>🎨 White liquid</span><span>⚙️ Roller, spatula, brush, nozzle</span></div>
           </div>
 
+          <!-- ── PVAc FOAM/UPHOLSTERY ── -->
+          <div class="grid-section-label"><span>PVAc — Foam &amp; Upholstery (Neoprene Contact Adhesive)</span></div>
+
+          <div class="card" data-cat="PVAc" data-app="Foam/Upholstery">
+            <div class="card-badges"><span class="badge badge-pvac">PVAc</span><span class="badge badge-app">Foam/Upholstery</span></div>
+            <div class="card-header"><div><div class="card-code">Unipren 1203</div><div class="card-tag">FOAM &amp; UPHOLSTERY — NEOPRENE CONTACT ADHESIVE</div></div><div><div class="card-pack-label">Pack</div><div class="card-pack-value">25 kg bucket / 1,000 kg IBC</div></div></div>
+            <div class="card-divider"></div>
+            <p class="card-desc">High dry-content water-based neoprene contact adhesive, used together with activator Hardener I094 via spray gun for perfect two-component mixing. Gives instant bonding in most applications without forced drying, with good elasticity. Odourless and free of flammable solvents. Particularly suited to bonding polyether and polyurethane foam to itself, and to natural fabrics, wadding and skin; also bonds leather with itself and with natural fabrics. Used in upholstered furniture, footwear, leather goods and insulation.</p>
+            <div class="card-specs"><span class="spec-pill">Mixing ratio 9:1 (adhesive:Hardener I094)</span><span class="spec-pill">Viscosity: 70–120 mPa·s @ 23°C</span><span class="spec-pill">Solid content: 53–56%</span><span class="spec-pill alt">Nozzle: 1.5–2 mm, 1–3 bar</span></div>
+            <div class="card-meta"><span>🎨 White, blue or pink liquid</span><span>⚙️ Spray gun / airbrush</span></div>
+          </div>
+
           <!-- ── EPI ── -->
           <div class="grid-section-label"><span>EPI — Emulsion Polymer Isocyanate</span></div>
 
@@ -1257,6 +1270,15 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
             <p class="card-desc">Special polyisocyanate catalyst for EVA adhesives. Increases water resistance for compliance with the standard EN204-205 group D4. Add to 5% on EVA dispersion.</p>
             <div class="card-specs"><span class="spec-pill">For Nunivil 211E at 7%</span><span class="spec-pill">For Nunivil 270 BV at 15%</span><span class="spec-pill">Pot life: 1–2 hrs</span><span class="spec-pill alt">D4 compliance</span></div>
             <div class="card-meta"><span>🎨 Brown liquid</span><span>⚙️ Mix into adhesive</span></div>
+          </div>
+
+          <div class="card" data-cat="Auxiliary" data-app="Foam/Upholstery">
+            <div class="card-badges"><span class="badge badge-aux">Auxiliary</span><span class="badge badge-app">Foam/Upholstery</span></div>
+            <div class="card-header"><div><div class="card-code">Hardener I094</div><div class="card-tag">ACTIVATOR FOR UNIPREN 1203</div></div><div><div class="card-pack-label">Pack</div><div class="card-pack-value">20 kg jerry can</div></div></div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Cross-linking activator for two-component water-dispersion spray systems, used together with Unipren 1203. Increasing the dosage increases green tack and reduces open time; used across furniture upholstery, footwear, leather goods and insulation.</p>
+            <div class="card-specs"><span class="spec-pill">Mixing ratio 9:1 (Unipren 1203:Hardener I094)</span><span class="spec-pill">Aspect: transparent fluid</span><span class="spec-pill">pH: 1.5–3.5</span><span class="spec-pill alt">Store ≥5°C</span></div>
+            <div class="card-meta"><span>🎨 Transparent fluid</span><span>⚙️ Mix into spray system</span></div>
           </div>
 
           <!-- ── EDGEBANDING AGENTS ── -->
@@ -1455,6 +1477,7 @@ html,body{height:100%;overflow:hidden;font-family:'Source Sans 3',sans-serif;bac
               <label class="product-check-item"><input type="checkbox" value="HMPUR Flat Lamination"> HMPUR Flat Lamination</label>
               <label class="product-check-item"><input type="checkbox" value="HMPUR Profile Wrapping"> HMPUR Profile Wrapping</label>
               <label class="product-check-item"><input type="checkbox" value="PVAc — Nunivil Range"> PVAc — Nunivil Range</label>
+              <label class="product-check-item"><input type="checkbox" value="Foam/Upholstery — Unipren 1203"> Foam/Upholstery — Unipren 1203</label>
               <label class="product-check-item"><input type="checkbox" value="EPI — Nunivil 270 BV"> EPI — Nunivil 270 BV</label>
               <label class="product-check-item"><input type="checkbox" value="PU Dispersion — Nunipur 7029"> PU Dispersion — Nunipur 7029</label>
               <label class="product-check-item"><input type="checkbox" value="UF Resin (Resina 404/405/506)"> UF Resin (Resina 404/405/506)</label>
@@ -1743,7 +1766,7 @@ let activeApps = new Set(); // empty = show all applications
 let activeSearch = '';
 
 const CAT_ID_MAP = {'EVA':'cat-EVA','PO':'cat-PO','HMPUR':'cat-HMPUR','PVAc':'cat-PVAc','EPI':'cat-EPI','PU Dispersion':'cat-PUDisp','UF Resin':'cat-UF','Auxiliary':'cat-Aux','Cleaners':'cat-Cleaners'};
-const APP_ID_MAP = {'Edgebanding':'app-EB','Flat Lamination':'app-FL','Profile Wrapping':'app-PW','3D Membrane Press':'app-3D','Assembly':'app-Asm','Veneering':'app-Ven','Parquet':'app-Pq','Post-forming':'app-PF','Laminate Pressing':'app-LamP','Acrylic Pressing':'app-AcrP','Machine Cleaning':'app-MC','Packaging':'app-Pkg'};
+const APP_ID_MAP = {'Edgebanding':'app-EB','Flat Lamination':'app-FL','Profile Wrapping':'app-PW','3D Membrane Press':'app-3D','Assembly':'app-Asm','Veneering':'app-Ven','Parquet':'app-Pq','Post-forming':'app-PF','Laminate Pressing':'app-LamP','Acrylic Pressing':'app-AcrP','Machine Cleaning':'app-MC','Packaging':'app-Pkg','Foam/Upholstery':'app-Foam'};
 
 function updateCatButtons() {
   document.querySelectorAll('[id^="cat-"]').forEach(b => b.classList.remove('active'));
