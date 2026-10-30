@@ -1639,6 +1639,18 @@ const DEALERS = {
             ✉️ &nbsp;rahul@modurawsolutions.com`,
     mapsUrl:  'https://maps.google.com/?q=Plot+No.+2+Bhangrola+Opp+Vaishno+Hospital+Manesar+Gurugram+122505+Haryana',
   },
+  shail: {
+    name:     'Shail Distributors',
+    email:    '',   // TODO: dealer email not yet provided — enquiries go to info@unicolindia.com until filled in
+    whatsapp: '918349967701',
+    tag:      'Unicol India Authorised Partner · Indore',
+    phoneDisplay: '+91 83499 67701',
+    addressHtml: `86, Scheme No. 94<br>
+            Near Bombay Hospital Service Road, Ring Road<br>
+            Indore, Madhya Pradesh 452001<br><br>
+            \u{1F4DE} &nbsp;+91 83499 67701`,
+    mapsUrl:  'https://maps.google.com/?q=Shail+Distributors+86+Scheme+No+94+Bombay+Hospital+Service+Road+Ring+Road+Indore+452001',
+  },
   // ── Add new dealers here — copy an entry above and fill in:
   // slug: { name, email, whatsapp, tag, phoneDisplay, addressHtml, mapsUrl }
 };
@@ -1998,7 +2010,7 @@ function submitEnquiry() {
   const fullName    = fname + ' ' + lname;
   const displayName = (salutation ? salutation + ' ' : '') + fullName;
 
-  const toEmail = DEALER ? DEALER.email : UNICOL_EMAIL;
+  const toEmail = (DEALER && DEALER.email) ? DEALER.email : UNICOL_EMAIL;
   const templateParams = {
     salutation:   salutation || '',
     first_name:   fname,
@@ -2023,7 +2035,7 @@ function submitEnquiry() {
 
   // Build sends: always TO primary (dealer or Unicol); if dealer, also CC Unicol
   const sends = [emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)];
-  if (DEALER) {
+  if (DEALER && DEALER.email) {
     sends.push(emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID,
       Object.assign({}, templateParams, { to_email: UNICOL_EMAIL, via_dealer: '[CC via ' + DEALER.name + ']' })
     ));
@@ -2106,7 +2118,7 @@ function submitQuickEnquiry() {
 
   const fullName    = fname + ' ' + lname;
   const displayName = (salutation ? salutation + ' ' : '') + fullName;
-  const qeToEmail   = DEALER ? DEALER.email : UNICOL_EMAIL;
+  const qeToEmail   = (DEALER && DEALER.email) ? DEALER.email : UNICOL_EMAIL;
   const qeParams = {
     salutation:   salutation || '',
     first_name:   fname,
@@ -2131,7 +2143,7 @@ function submitQuickEnquiry() {
   });
 
   const qeSends = [emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, qeParams)];
-  if (DEALER) {
+  if (DEALER && DEALER.email) {
     qeSends.push(emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID,
       Object.assign({}, qeParams, { to_email: UNICOL_EMAIL, via_dealer: '[CC via ' + DEALER.name + ']' })
     ));
@@ -2185,7 +2197,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (addrEl && DEALER.addressHtml) addrEl.innerHTML = DEALER.addressHtml;
     if (mapsEl && DEALER.mapsUrl) mapsEl.href = DEALER.mapsUrl;
     if (mcsPhone && DEALER.phoneDisplay) mcsPhone.textContent = '📞 ' + DEALER.phoneDisplay;
-    if (mcsEmail) mcsEmail.textContent = '✉️ ' + DEALER.email;
+    if (mcsEmail) mcsEmail.textContent = '✉️ ' + (DEALER.email || UNICOL_EMAIL);
 
     if (slot) {
       slot.innerHTML =

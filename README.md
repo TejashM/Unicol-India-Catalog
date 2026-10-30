@@ -23,6 +23,7 @@ One file serves every dealer. The dealer is selected by a `?dealer=` parameter i
 | Yash Tooling System | `https://tejashm.github.io/Unicol-India-Catalog/?dealer=yashtoolingsystem` |
 | Anushka Sales | `https://tejashm.github.io/Unicol-India-Catalog/?dealer=anushka` |
 | Safalta Trading Co | `https://tejashm.github.io/Unicol-India-Catalog/?dealer=safalta` |
+| Shail Distributors (Indore) | `https://tejashm.github.io/Unicol-India-Catalog/?dealer=shail` |
 
 ## Adding a new dealer
 
